@@ -1,4 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import createMDX from "@next/mdx";
+import rehypeMdxCodeProps from "rehype-mdx-code-props";
 
-module.exports = nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+};
+
+const withMDX = createMDX({
+  options: {
+    rehypePlugins: [rehypeMdxCodeProps],
+  },
+});
+
+export default withMDX(nextConfig);
