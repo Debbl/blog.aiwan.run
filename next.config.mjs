@@ -1,5 +1,8 @@
 import createMDX from "@next/mdx";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import remarkHeaderify from "remark-headerify";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,6 +12,11 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
+    remarkPlugins: [
+      remarkFrontmatter,
+      remarkHeaderify,
+      [remarkMdxFrontmatter, { name: "metadata" }],
+    ],
     rehypePlugins: [rehypeMdxCodeProps],
   },
 });

@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import type { SandpackInternal } from "@codesandbox/sandpack-react/types";
 import Sandpack from "./components/Sandpack";
+import Header from "./components/Header";
 
 interface SandpackChildrenProps {
   filename?: string;
@@ -19,6 +20,11 @@ interface SandpackProps extends SandpackInternalParams {
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
+    Header: (props: { title: string }) => {
+      const { title = "" } = props;
+
+      return <Header title={title} />;
+    },
     Sandpack: (props: SandpackProps) => {
       const { children, ..._props } = props;
 
