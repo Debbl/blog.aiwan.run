@@ -29,6 +29,8 @@
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.3",
     "github-markdown-css": "^5.2.0",
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3",
     "postcss": "8.4.31",
     "rehype-mdx-code-props": "^1.0.0",
     "remark-frontmatter": "^5.0.0",
